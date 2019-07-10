@@ -102,7 +102,9 @@ def train_model(base_model: keras.Model, is_causal: bool, tasks_meta_data: List[
                         task_data_batch = batch.sentence_classification[task_name]
                     else:
                         task_data_batch = batch.token_classification[task_name]
+                    print("training:" +str(x))
                     x.append(task_data_batch.target)
+                    print("target: " +str(task_data_batch.target))
                     if all_tasks[task_name].is_token_level:
                         x.append(task_data_batch.target_mask)
                     else:
